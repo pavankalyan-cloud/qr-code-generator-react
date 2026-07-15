@@ -1,16 +1,114 @@
-# React + Vite
+# QR Code Generator - React Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![Vite](https://img.shields.io/badge/Vite-8-purple?logo=vite)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)
 
-Currently, two official plugins are available:
+A modern React frontend for the QR Code Generator application. This application allows users to register, log in, generate QR codes, preview them, download them, and view QR history.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- User Registration
+- User Login (JWT Authentication)
+- Generate QR Codes
+- QR Code Preview
+- Download QR Codes
+- QR History
+- Responsive UI
+- REST API Integration with Django Backend
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Tech Stack
+
+- React.js
+- Vite
+- JavaScript
+- CSS
+- Axios
+- REST API
+- Git & GitHub
+
+---
+
+## Project Structure
+
+```
+src/
+│
+├── components/
+│   ├── QRForm.jsx
+│   ├── QRPreview.jsx
+│   ├── QRHistory.jsx
+│   └── Loader.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Login.jsx
+│   └── Register.jsx
+│
+├── services/
+│   └── api.js
+│
+├── styles/
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+---
+
+## Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/pavankalyan-cloud/qr-code-generator-react.git
+```
+
+Go to the project folder
+
+```bash
+cd qr-code-generator-react
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## Backend Repository
+
+https://github.com/pavankalyan-cloud/qr-code-generator-django
+
+---
+
+## Future Improvements
+
+- Deploy on Vercel
+- Dark Mode
+- QR Customization
+- User Profile
+- Mobile Responsive Improvements
+
+---
+
+## Author
+
+**Pavan Kalyan Gorrela**
+
+GitHub:
+https://github.com/pavankalyan-cloud
