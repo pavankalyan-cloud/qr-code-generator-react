@@ -1,0 +1,38 @@
+.qr-form {
+  margin-top: 25px;
+}
+
+.qr-input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.qr-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+}
+
+.generate-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.generate-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
