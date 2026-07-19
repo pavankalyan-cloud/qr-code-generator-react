@@ -1,6 +1,7 @@
 import { FaDownload, FaTrash } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import API from "../services/api";
+import "../styles/QRHistory.css";
 
 function QRHistory() {
   const [history, setHistory] = useState([]);
@@ -13,29 +14,24 @@ function QRHistory() {
     try {
       const response = await API.get("history/");
 
-      console.log("History Response:", response.data);
-
-      // Handle paginated and non-paginated responses
       if (response.data.results) {
         setHistory(response.data.results);
       } else {
         setHistory(response.data);
       }
     } catch (error) {
-      console.log("Status:", error.response?.status);
-      console.log("Data:", error.response?.data);
-      console.log("Headers:", error.config?.headers);
+      console.log(error.response?.data);
     }
   };
 
   const deleteQR = async (id) => {
     try {
       await API.delete(`delete/${id}/`);
-      alert("QR Code Deleted Successfully");
+      alert("✅ QR Code Deleted Successfully");
       fetchHistory();
     } catch (error) {
       console.log(error.response?.data);
-      alert("Failed to delete QR Code");
+      alert("❌ Failed to delete QR Code");
     }
   };
 
@@ -58,49 +54,52 @@ function QRHistory() {
       window.URL.revokeObjectURL(url);
     } catch (error) {
       console.log(error.response?.data);
-      alert("Download Failed");
+      alert("❌ Download Failed");
     }
   };
 
   return (
-    <div style={{ marginTop: "40px" }}>
+    <div className="history-container">
       <h2>QR History</h2>
 
       {history.length === 0 ? (
-        <p>No QR Codes Generated Yet</p>
+        <p className="empty-history">
+          No QR Codes Generated Yet.
+        </p>
       ) : (
         history.map((item) => (
-          <div
-            key={item.id}
-            style={{
-              border: "1px solid #ddd",
-              borderRadius: "10px",
-              padding: "15px",
-              marginBottom: "20px",
-            }}
-          >
-            <p>
+          <div key={item.id} className="history-card">
+
+            <p className="history-text">
               <strong>Text:</strong> {item.data}
             </p>
 
             <img
               src={`http://127.0.0.1:8000${item.image}`}
               alt="QR Code"
-              width="140"
+              className="history-image"
             />
 
-            <div style={{ marginTop: "15px" }}>
+            <div className="history-buttons">
+
               <button
+                className="download-btn"
                 onClick={() => downloadQR(item.id)}
-                style={{ marginRight: "10px" }}
               >
-                Download
+                <FaDownload />
+                <span>Download QR</span>
               </button>
 
-              <button onClick={() => deleteQR(item.id)}>
-                Delete
+              <button
+                className="delete-btn"
+                onClick={() => deleteQR(item.id)}
+              >
+                <FaTrash />
+                <span>Delete</span>
               </button>
+
             </div>
+
           </div>
         ))
       )}
